@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Deezer_Test</string>
+    <string name="title_preference">Préférence</string>
+
+    <string name="navigation_button_account">Compte</string>
+    <string name="navigation_button_display">Affichage</string>
+
+    <string name="display_mode">Activer le mode sombre</string>
+    <string name="account_followers">followers</string>
+    <string name="account_followings">followings</string>
+
 </resources>

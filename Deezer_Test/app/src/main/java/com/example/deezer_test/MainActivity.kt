@@ -19,30 +19,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Deezer_TestTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                DeezerApp()
                 }
+
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "",
-        modifier = modifier
-    )
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Deezer_TestTheme {
-        Greeting("Android")
-    }
-}
