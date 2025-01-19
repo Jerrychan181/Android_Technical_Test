@@ -8,5 +8,8 @@
     <string name="display_mode">Activer le mode sombre</string>
     <string name="account_followers">followers</string>
     <string name="account_followings">followings</string>
+    <string name="title_display">Affichage</string>
+    <string name="title_profil">Compte</string>
+    <string name="back_button">go back instruction</string>
 
 </resources>

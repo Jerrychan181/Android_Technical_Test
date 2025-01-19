@@ -5,13 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.deezer_test.ui.theme.Deezer_TestTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,15 +19,27 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Deezer_TestTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize()
-                ){
-                DeezerApp()
+            val stateViewModel: StateViewModel = viewModel()
+            Deezer_TestTheme(stateViewModel.isDarkTheme.value) {
+                Surface(modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.onPrimary) {
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = "main"
+                    ) {
+                        composable("main") {
+                            DeezerApp(navController)
+                        }
+                        composable("display") {
+                            DisplayScreen(navController, stateViewModel)
+                        }
+                        composable("profil") {
+                            ProfilScreen(navController)
+                        }
+                    }
                 }
-                }
-
             }
         }
     }
-
+}
