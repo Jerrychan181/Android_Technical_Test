@@ -1,6 +1,5 @@
 package com.example.deezer_test.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -25,7 +24,7 @@ private val LightColorScheme = lightColorScheme(
     onBackground = Pink80
 
     /* Other default colors to override
-    background = Color(0xFFFFFBFE),
+
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,
     onSecondary = Color.White,
@@ -34,6 +33,7 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
+
 
 @Composable
 fun Deezer_TestTheme(

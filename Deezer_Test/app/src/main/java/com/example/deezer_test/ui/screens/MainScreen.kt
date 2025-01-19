@@ -1,4 +1,4 @@
-package com.example.deezer_test
+package com.example.deezer_test.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -10,8 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -29,52 +29,48 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.deezer_test.R
+import com.example.deezer_test.StateViewModel
+import com.example.deezer_test.ui.theme.Gray40
 
 @Composable
-fun DeezerApp(navController: NavController) {
-    val StateViewModel: StateViewModel = viewModel()
+fun DeezerApp(navController: NavController, stateViewModel: StateViewModel) {
     MaterialTheme(
-        colorScheme = if (StateViewModel.isDarkTheme.value) darkColorScheme() else lightColorScheme()
+        colorScheme = if (stateViewModel.isDarkTheme.value) darkColorScheme() else lightColorScheme()
     ) {
-    }
-
-    Scaffold {
-            paddingValues ->
-        Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .padding(dimensionResource(id = R.dimen.padding_small))
-                .verticalScroll(rememberScrollState())
-                .fillMaxSize()
-        ) {
-            Text(
-                text = stringResource(R.string.title_preference),
-                color = Color.Gray,
-                textAlign = TextAlign.Left
-            )
+        Scaffold { paddingValues ->
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color(0xFFF5F0F5))
+                    .padding(paddingValues)
+                    .padding(dimensionResource(id = R.dimen.padding_small))
+                    .verticalScroll(rememberScrollState())
+                    .fillMaxSize()
             ) {
-
-                NavigationButton(
-                    label = stringResource(R.string.navigation_button_account),
-                    icon = Icons.Default.Person,
-                    route = "display",
-                    navController = navController
+                Text(
+                    text = stringResource(R.string.title_preference),
+                    color = Gray40,
+                    textAlign = TextAlign.Left
                 )
-                NavigationButton(
-                    label = stringResource(R.string.navigation_button_display),
-                    icon = Icons.Default.Build,
-                    route = "display",
-                    navController = navController
-                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color(0xFFF5F0F5))
+                ) {
+                    NavigationButton(
+                        label = stringResource(R.string.navigation_button_account),
+                        icon = Icons.Default.Person,
+                        route = "profil",
+                        navController = navController
+                    )
+                    NavigationButton(
+                        label = stringResource(R.string.navigation_button_display),
+                        icon = Icons.Default.Build,
+                        route = "display",
+                        navController = navController
+                    )
+                }
             }
-
         }
     }
 }
@@ -93,7 +89,7 @@ fun NavigationButton(label: String, icon: ImageVector, route: String, navControl
         Icon(
             imageVector = icon,
             contentDescription = null,
-            modifier = Modifier.padding(end = 8.dp)
+            modifier = Modifier.padding(end = dimensionResource(id = R.dimen.padding_small))
         )
         Text(
             label,
@@ -103,22 +99,18 @@ fun NavigationButton(label: String, icon: ImageVector, route: String, navControl
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp),
+                .padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.End
         ) {
             Icon(
-                imageVector = Icons.Default.KeyboardArrowRight,
+                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = null,
-                modifier = Modifier.padding(end = 8.dp)
+                modifier = Modifier.padding(end= dimensionResource(id = R.dimen.padding_small))
             )
         }
-
-
     }
 }
-
-
 
 @Preview(showBackground = true)
 @Composable

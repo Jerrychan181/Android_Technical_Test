@@ -11,7 +11,4 @@ class StateViewModel : ViewModel() {
         isDarkTheme.value = darkTheme
     }
 
-    fun changeTheme() {
-        isDarkTheme.value = !isDarkTheme.value
-    }
 }

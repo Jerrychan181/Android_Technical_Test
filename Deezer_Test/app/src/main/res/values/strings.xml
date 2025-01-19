@@ -5,11 +5,14 @@
     <string name="navigation_button_account">Compte</string>
     <string name="navigation_button_display">Affichage</string>
 
-    <string name="display_mode">Activer le mode sombre</string>
+    <string name="placeholder_darkMode">Activer le mode sombre</string>
     <string name="account_followers">followers</string>
     <string name="account_followings">followings</string>
     <string name="title_display">Affichage</string>
     <string name="title_profil">Compte</string>
     <string name="back_button">go back instruction</string>
+    <string name="placeholder_profilName">Joe joe</string>
+    <string name="placeholder_profilFollower">"2134 followers | 321 followings "</string>
+
 
 </resources>
