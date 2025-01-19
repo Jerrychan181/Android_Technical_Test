@@ -50,7 +50,8 @@ fun DeezerApp(navController: NavController, stateViewModel: StateViewModel) {
                 Text(
                     text = stringResource(R.string.title_preference),
                     color = Gray40,
-                    textAlign = TextAlign.Left
+                    textAlign = TextAlign.Left,
+                            modifier = Modifier
                 )
                 Column(
                     modifier = Modifier

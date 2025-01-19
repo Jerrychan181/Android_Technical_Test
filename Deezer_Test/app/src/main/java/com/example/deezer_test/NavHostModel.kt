@@ -12,9 +12,9 @@ import com.example.deezer_test.ui.screens.ProfilScreen
 fun NavHostModel(navController: NavHostController, stateViewModel: StateViewModel) {
     NavHost(
         navController = navController,
-        startDestination = "main"
+        startDestination = "mainScreen"
     ) {
-        composable("main") {
+        composable("mainScreen") {
             DeezerApp(navController, stateViewModel)
         }
         composable("display") {
