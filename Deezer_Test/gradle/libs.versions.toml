@@ -11,9 +11,11 @@ composeBom = "2024.04.01"
 uiTestJunit4 = "1.7.6"
 uiTestManifest = "1.8.6"
 navigationTesting = "2.8.5"
+uiTestManifestVersion = "1.7.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-ui-test-manifest-v176 = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "uiTestManifestVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

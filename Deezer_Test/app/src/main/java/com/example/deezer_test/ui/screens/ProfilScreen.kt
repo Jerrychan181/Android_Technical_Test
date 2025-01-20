@@ -38,6 +38,9 @@ import com.example.deezer_test.R
 import com.example.deezer_test.StateViewModel
 import com.example.deezer_test.ui.theme.Gray40
 
+/**
+ * Cet écran affiche le profil d'une utilisateur
+ */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

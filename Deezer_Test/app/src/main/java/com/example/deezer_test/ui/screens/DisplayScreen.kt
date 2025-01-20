@@ -32,6 +32,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.deezer_test.R
 import com.example.deezer_test.StateViewModel
 
+
+/**
+ * Ecran de changement de thème. Il y a un bouton switchDarkMode qui permet de passer en darkmode
+ */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DisplayAppBar(
@@ -78,7 +83,7 @@ fun DisplayScreen(
                             .fillMaxWidth()
                             .background(Color(0xFFF5F0F5))
                     ) {
-                        SwitchMinimal(
+                        SwitchDarkMode(
                             stringResource(R.string.placeholder_darkMode),
                             darkTheme = stateViewModel.isDarkTheme.value,
                             onThemeChange = { stateViewModel.setTheme(it) }
@@ -91,9 +96,11 @@ fun DisplayScreen(
     }
 }
 
-
+/*
+* Bouton de switch pour le dark mode
+ */
 @Composable
-fun SwitchMinimal(label: String, darkTheme: Boolean, onThemeChange: (Boolean) -> Unit) {
+fun SwitchDarkMode(label: String, darkTheme: Boolean, onThemeChange: (Boolean) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()

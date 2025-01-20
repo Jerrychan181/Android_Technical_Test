@@ -34,6 +34,11 @@ import com.example.deezer_test.R
 import com.example.deezer_test.StateViewModel
 import com.example.deezer_test.ui.theme.Gray40
 
+/**
+ * Ecran principal de navigation.
+ *
+ */
+
 @Composable
 fun DeezerApp(navController: NavController, stateViewModel: StateViewModel) {
     MaterialTheme(
