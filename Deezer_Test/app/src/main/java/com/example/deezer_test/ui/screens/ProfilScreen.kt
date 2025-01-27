@@ -60,7 +60,7 @@ fun ProfilAppBar(
     )
     HorizontalDivider(thickness = 1.dp,
         modifier = Modifier.fillMaxWidth())
-    }
+}
 }
 
 @Composable
@@ -79,32 +79,30 @@ fun ProfilScreen(navController: NavController, stateViewModel: StateViewModel) {
                         .padding(dimensionResource(id = R.dimen.padding_small))
                         .fillMaxSize()
                 ){
-                        Box(
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(dimensionResource(id = R.dimen.padding_medium))
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.pp_placeholder),
+                            contentDescription = "profil_picture",
+                            contentScale = ContentScale.Crop,
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(dimensionResource(id = R.dimen.padding_medium))
-                        ) {
-                            Image(
-                                painter = painterResource(R.drawable.pp_placeholder),
-                                contentDescription = "profil_picture",
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier
-                                    .size(128.dp)
-                                    .clip(CircleShape)
-                                    .align(Alignment.Center)
-                            )
-                        }
-                            Column(){
-                                Text(text = stringResource(R.string.placeholder_profilName),
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 50.sp
-                                    )
-                                Text(text = stringResource(R.string.placeholder_profilFollower),
-                                   color = Gray40)
-                        }
+                                .size(128.dp)
+                                .clip(CircleShape)
+                                .align(Alignment.Center)
+                        )
                     }
-            }
 
+                    Text(text = stringResource(R.string.placeholder_profilName),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 50.sp
+                    )
+                    Text(text = stringResource(R.string.placeholder_profilFollower),
+                        color = Gray40)
+                }
+            }
         )
     }
 }

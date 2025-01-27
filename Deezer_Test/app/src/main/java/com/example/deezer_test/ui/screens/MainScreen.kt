@@ -45,37 +45,33 @@ fun DeezerApp(navController: NavController, stateViewModel: StateViewModel) {
         colorScheme = if (stateViewModel.isDarkTheme.value) darkColorScheme() else lightColorScheme()
     ) {
         Scaffold { paddingValues ->
+
             Column(
                 modifier = Modifier
                     .padding(paddingValues)
                     .padding(dimensionResource(id = R.dimen.padding_small))
                     .verticalScroll(rememberScrollState())
-                    .fillMaxSize()
+                    .fillMaxWidth()
             ) {
                 Text(
                     text = stringResource(R.string.title_preference),
                     color = Gray40,
                     textAlign = TextAlign.Left,
-                            modifier = Modifier
-                )
-                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .background(Color(0xFFF5F0F5))
-                ) {
-                    NavigationButton(
-                        label = stringResource(R.string.navigation_button_account),
-                        icon = Icons.Default.Person,
-                        route = "profil",
-                        navController = navController
-                    )
-                    NavigationButton(
-                        label = stringResource(R.string.navigation_button_display),
-                        icon = Icons.Default.Build,
-                        route = "display",
-                        navController = navController
-                    )
-                }
+                )
+
+                NavigationButton(
+                    label = stringResource(R.string.navigation_button_account),
+                    icon = Icons.Default.Person,
+                    route = "profil",
+                    navController = navController
+                )
+                NavigationButton(
+                    label = stringResource(R.string.navigation_button_display),
+                    icon = Icons.Default.Build,
+                    route = "display",
+                    navController = navController
+                )
             }
         }
     }
@@ -90,8 +86,9 @@ fun NavigationButton(label: String, icon: ImageVector, route: String, navControl
     TextButton(
         onClick = {navController.navigate(route)  },
         modifier = Modifier
+            .background(Color(0xFFF5F0F5))
 
-        ) {
+    ) {
         Icon(
             imageVector = icon,
             contentDescription = null,

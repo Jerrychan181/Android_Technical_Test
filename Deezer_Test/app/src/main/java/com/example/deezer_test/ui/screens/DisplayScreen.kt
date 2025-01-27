@@ -76,21 +76,17 @@ fun DisplayScreen(
                     modifier = Modifier
                         .padding(paddingValues)
                         .padding(dimensionResource(id = R.dimen.padding_small))
-                        .fillMaxSize()
+                        .fillMaxWidth()
+                        .background(Color(0xFFF5F0F5))
                 ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(Color(0xFFF5F0F5))
-                    ) {
-                        SwitchDarkMode(
-                            stringResource(R.string.placeholder_darkMode),
-                            darkTheme = stateViewModel.isDarkTheme.value,
-                            onThemeChange = { stateViewModel.setTheme(it) }
+                    SwitchDarkMode(
+                        stringResource(R.string.placeholder_darkMode),
+                        darkTheme = stateViewModel.isDarkTheme.value,
+                        onThemeChange = { stateViewModel.setTheme(it) }
 
-                        )
-                    }
+                    )
                 }
+
             }
         )
     }
@@ -121,8 +117,8 @@ fun SwitchDarkMode(label: String, darkTheme: Boolean, onThemeChange: (Boolean) -
 }
 
 @Preview(showBackground = true)
-    @Composable
-    fun DisplayScreenPreview() {
-        DisplayScreen(navController = rememberNavController(), StateViewModel())
+@Composable
+fun DisplayScreenPreview() {
+    DisplayScreen(navController = rememberNavController(), StateViewModel())
 
-    }
+}
